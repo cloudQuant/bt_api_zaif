@@ -1,0 +1,13 @@
+"""Tests for exchange_registers/register_zaif.py."""
+
+from __future__ import annotations
+
+from bt_api_zaif.registry_registration import register_zaif
+
+
+class TestRegisterZaif:
+    """Tests for Zaif registration module."""
+
+    def test_module_imports(self):
+        """Test module can be imported."""
+        assert register_zaif is not None
