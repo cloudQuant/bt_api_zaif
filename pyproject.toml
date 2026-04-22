@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "bt_api_zaif"
-version = "0.15.1"
+version = "0.1.1"
 description = "Zaif exchange adapter for bt_api framework - Japanese cryptocurrency exchange"
 readme = "README.md"
 requires-python = ">=3.9"
