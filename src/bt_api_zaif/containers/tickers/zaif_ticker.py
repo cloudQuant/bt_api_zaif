@@ -11,12 +11,12 @@ class ZaifRequestTickerData(TickerData):
     def __init__(
         self,
         ticker_info: str | dict[str, Any],
-        symbol_name: str = "",
-        asset_type: str = "SPOT",
+        symbol_name: str = '',
+        asset_type: str = 'SPOT',
         has_been_json_encoded: bool = False,
     ) -> None:
         super().__init__(ticker_info, has_been_json_encoded)
-        self.exchange_name = "ZAIF"
+        self.exchange_name = 'ZAIF'
         self.local_update_time = time.time()
         self.symbol_name = symbol_name
         self.asset_type = asset_type
@@ -34,10 +34,10 @@ class ZaifRequestTickerData(TickerData):
         self.has_been_init_data = False
 
     @classmethod
-    def from_json(cls, data: dict[str, Any]) -> "ZaifRequestTickerData":
+    def from_json(cls, data: dict[str, Any]) -> ZaifRequestTickerData:
         return cls(data, has_been_json_encoded=True)
 
-    def init_data(self) -> "ZaifRequestTickerData":
+    def init_data(self) -> ZaifRequestTickerData:
         if not self.has_been_json_encoded:
             self.ticker_data = (
                 json.loads(self.ticker_info)
@@ -50,13 +50,13 @@ class ZaifRequestTickerData(TickerData):
 
         data = self.ticker_data if isinstance(self.ticker_data, dict) else {}
         self.ticker_symbol_name = self.symbol_name or None
-        self.last_price = float(data.get("last", 0.0))
-        self.bid_price = float(data.get("bid", 0.0))
-        self.ask_price = float(data.get("ask", 0.0))
-        self.bid_volume = float(data.get("bid_depth", 0.0))
-        self.ask_volume = float(data.get("ask_depth", 0.0))
-        self.last_volume = float(data.get("volume", 0.0))
-        self.server_time = float(data.get("timestamp", 0.0) or 0.0)
+        self.last_price = float(data.get('last', 0.0))
+        self.bid_price = float(data.get('bid', 0.0))
+        self.ask_price = float(data.get('ask', 0.0))
+        self.bid_volume = float(data.get('bid_depth', 0.0))
+        self.ask_volume = float(data.get('ask_depth', 0.0))
+        self.last_volume = float(data.get('volume', 0.0))
+        self.server_time = float(data.get('timestamp', 0.0) or 0.0)
         self.has_been_init_data = True
         return self
 
