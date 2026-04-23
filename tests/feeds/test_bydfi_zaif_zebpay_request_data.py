@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock
-from bt_api_zaif.feeds.live_zaif.request_base import ZaifRequestData
+
 from bt_api_zebpay.feeds.live_zebpay.request_base import ZebpayRequestData
+
+from bt_api_zaif.feeds.live_zaif.request_base import ZaifRequestData
 
 
 def test_zaif_disconnect_closes_http_client() -> None:
