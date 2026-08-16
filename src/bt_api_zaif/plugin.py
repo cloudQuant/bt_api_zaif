@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from bt_api_base.balance_utils import simple_balance_handler
@@ -6,6 +7,7 @@ from bt_api_base.registry import ExchangeRegistry
 
 
 def register_zaif() -> None:
+    """register_zaif function"""
     from bt_api_zaif.feeds.live_zaif.spot import ZaifRequestDataSpot
     from bt_api_zaif.exchange_data import ZaifExchangeDataSpot
 
@@ -15,6 +17,7 @@ def register_zaif() -> None:
 
 
 def plugin_info() -> PluginInfo:
+    """plugin_info function"""
     from bt_api_zaif import __version__
 
     return PluginInfo(

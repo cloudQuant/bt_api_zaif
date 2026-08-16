@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 import hashlib
@@ -12,9 +13,11 @@ from bt_api_zaif.exchange_data import ZaifExchangeDataSpot
 
 
 class ZaifRequestData(Feed):
+    """Class ZaifRequestData"""
     _exchange_data = ZaifExchangeDataSpot()
 
     def __init__(self, data_queue: Any = None, **kwargs: Any) -> None:
+        """__init__ method"""
         super().__init__(data_queue, **kwargs)
         self.exchange_name = kwargs.get("exchange_name", "ZAIF___SPOT")
         self.asset_type = kwargs.get("asset_type", "SPOT")
@@ -57,6 +60,7 @@ class ZaifRequestData(Feed):
         extra_data: Any = None,
         timeout: float = 10.0,
     ) -> RequestData:
+        """request method"""
         request_params = params or {}
         self._last_params = dict(request_params)
         response = self._http_client.request(
@@ -76,6 +80,7 @@ class ZaifRequestData(Feed):
         extra_data: Any = None,
         timeout: float = 10.0,
     ) -> RequestData:
+        """async_request method"""
         request_params = params or {}
         self._last_params = dict(request_params)
         response = await self._http_client.async_request(
@@ -88,14 +93,17 @@ class ZaifRequestData(Feed):
         return RequestData(response, extra_data)
 
     def async_callback(self, future: Any) -> None:
+        """async_callback method"""
         if self.data_queue is None:
             return
         self.data_queue.put(future.result())
 
     def connect(self) -> None:
+        """connect method"""
         return None
 
     def is_connected(self) -> bool:
+        """is_connected method"""
         return True
 
     def _format_market(self, symbol: str) -> str:
@@ -108,4 +116,5 @@ class ZaifRequestData(Feed):
         return response.get("error") is not None or response.get("success", 1) == 0
 
     def disconnect(self) -> None:
+        """disconnect method"""
         super().disconnect()

@@ -1,8 +1,10 @@
+"""Module-level docstring."""
 from bt_api_base.feeds.capability import Capability
 from bt_api_zaif.feeds.live_zaif.request_base import ZaifRequestData
 
 
 class ZaifRequestDataSpot(ZaifRequestData):
+    """Class ZaifRequestDataSpot"""
     @classmethod
     def _capabilities(cls) -> set[Capability]:
         return {
@@ -17,5 +19,6 @@ class ZaifRequestDataSpot(ZaifRequestData):
         }
 
     def __init__(self, data_queue=None, **kwargs):
+        """__init__ method"""
         super().__init__(data_queue, **kwargs)
         self.exchange_name = kwargs.get("exchange_name", "ZAIF___SPOT")
