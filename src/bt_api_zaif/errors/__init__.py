@@ -13,4 +13,4 @@ class ZaifErrorTranslator(ErrorTranslator):
         """is_error method"""
         if not isinstance(response, dict):
             return False
-        return response.get("error") is not None or response.get("success", 1) == 0
+        return response.get('error') is not None or response.get('success', 1) == 0
