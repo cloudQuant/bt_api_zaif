@@ -109,3 +109,6 @@ markers = [
     "integration: Integration tests (may require external services)",
 ]
 
+
+[project.entry-points."bt_api.plugins"]
+zaif = "bt_api_zaif.plugin:register_plugin"
